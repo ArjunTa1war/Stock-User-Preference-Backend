@@ -84,7 +84,6 @@ app.post("/getuser",fetchuser,async(req,res)=>{
     const user = await User.findById(userId).select("-password");
     const secret = process.env.USERSECRET;
     const distinct_id = user.email;
-    console.log(user.email.key);
     res.json({email : user.email,key : hmac_rawurlsafe_base64_string(distinct_id,secret)});
 })
 
