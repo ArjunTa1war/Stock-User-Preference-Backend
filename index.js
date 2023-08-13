@@ -27,7 +27,7 @@ app.post("/register",async(req,res)=>{
     const user = await User.create({
         email : req.body.email,
         name : req.body.name,
-        phone : req.body.phone,
+        phone : req.body.countryCode+req.body.phone,
         password : req.body.password
     })
     const data = {
